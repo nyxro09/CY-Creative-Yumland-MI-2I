@@ -1,0 +1,74 @@
+/* Couleurs officielles Mosaïque Pizza */
+:root {
+    --rouge-mosaique: #E30613;
+    --jaune-action: #FFCC00;
+    --noir-menu: #1a1a1a;
+    --gris-fond: #f8f8f8;
+}
+
+body {
+    background-color: var(--gris-fond);
+    margin: 0;
+    padding-top: 70px; /* Espace pour le menu fixe */
+}
+
+/* 1. La Barre de Navigation (Header) */
+.navbar {
+    background-color: var(--noir-menu); /* Mosaïque utilise un fond sombre pour le menu */
+    border-bottom: 4px solid var(--rouge-mosaique);
+    padding: 10px 5%;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 900;
+    letter-spacing: -1px;
+    color: #fff;
+}
+
+.logo span {
+    color: var(--rouge-mosaique);
+}
+
+/* 2. Les Cartes de Produits (Inspiration site officiel) */
+.card {
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Badge Promo (ex: "1 achetée = 1 offerte") */
+.card::after {
+    content: "OFFRE";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--rouge-mosaique);
+    color: #fff;
+    padding: 2px 8px;
+    font-size: 0.7em;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+/* 3. Les Boutons "Commander" */
+.btn-order {
+    background-color: var(--jaune-action);
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 800;
+    border-radius: 50px; /* Boutons très arrondis */
+    padding: 10px 20px;
+}
+
+/* 4. Typographie des titres */
+h2 {
+    border-left: 5px solid var(--rouge-mosaique);
+    padding-left: 15px;
+    text-transform: uppercase;
+    font-size: 1.4em;
+    color: #222;
+}

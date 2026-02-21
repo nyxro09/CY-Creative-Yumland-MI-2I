@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mosaïque Yum - La Carte</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="Acceuil.html">
+            <img src="images/logo.png" alt="Logo Mosaïque" class="logo-img">
+        </a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="Acceuil.html">ACCUEIL</a></li>
+                <li><a href="Carte.html" class="active">LA CARTE</a></li>
+                <li><a href="Login.html">CONNEXION</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="filter-container">
+            <div class="search-box">
+                <input type="text" placeholder="Rechercher (ex: Margherita, Tiramisu)...">
+            </div>
+            <div class="filters">
+                <button class="filter-btn">Pizzas</button>
+                <button class="filter-btn">Salades</button>
+                <button class="filter-btn">Desserts</button>
+            </div>
+        </section>
+
+        <section class="menu-category">
+            <h2>🍕 Toutes nos Pizzas</h2>
+            <div class="grid-plats">
+                <article class="card">
+                    <img src="images/pizza-margherita.jpg" alt="Margherita">
+                    <div class="card-content">
+                        <h3>Margherita</h3>
+                        <p>Sauce tomate, Mozzarella, Basilic frais.</p>
+                        <div class="card-footer">
+                            <span class="price">7,50€</span>
+                            <button class="btn-order">COMMANDER</button>
+                        </div>
+                    </div>
+                </article>
+                </div>
+        </section>
+
+        <section class="menu-category">
+            <h2>🍰 Nos Desserts</h2>
+            <div class="grid-plats">
+                <article class="card">
+                    <img src="images/tiramisu.jpg" alt="Tiramisu">
+                    <div class="card-content">
+                        <h3>Tiramisu Maison</h3>
+                        <p>Véritable recette italienne au café.</p>
+                        <div class="card-footer">
+                            <span class="price">4,50€</span>
+                            <button class="btn-order">AJOUTER</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Creative-Yumland - Projet préING2</p>
+    </footer>
+
+</body>
+</html>
