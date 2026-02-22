@@ -1,35 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Connexion</title>
+    <title>Mosaïque Yum - Connexion</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <header class="navbar">
         <a href="Accueil.html" class="logo-container">
-            <img src="images/logo.png" alt="Logo Mosaïque Yum" class="logo-img">
+            <img src="images/logo.png" alt="Logo Mosaïque" class="logo-img">
         </a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="Accueil.html">ACCUEIL</a></li>
+                <li><a href="Carte.html">LA CARTE</a></li>
+                <li><a href="Login.html" class="active">CONNEXION</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section id="login">
-        <h1>Connexion Client</h1>
-        <p>Heureux de vous voir ! Connectez-vous pour voir vos commandes précédentes.</p>
-        
-        <form action="Profil.html" method="POST">
-            <div>
-                <label>Adresse Email :</label>
-                <input type="email" id="email" name="email" placeholder="exemple@gmail.com" required>
-            </div>
+    <main>
+        <section id="login">
+            <h1>Connexion Client</h1>
+            <p>Heureux de vous voir ! Connectez-vous pour voir vos commandes précédentes.</p>
             
-            <div>
-                <label>Mot de Passe :</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            
-            <button type="submit">Se connecter</button> 
-            <p>Pas encore inscrit ? <a href="Register.html">Cliquez ici</a></p>
-        </form>
-    </section>
+            <form action="Profil.html" method="POST">
+                <div>
+                    <label>Adresse Email :</label>
+                    <input type="email" id="email" name="email" placeholder="exemple@gmail.com" required>
+                </div>
+                
+                <div>
+                    <label>Mot de Passe :</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <button type="submit">Se connecter</button> 
+                <p>Pas encore inscrit ? <a href="Register.html">Cliquez ici</a></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Creative-Yumland - Projet préING2</p>
+    </footer>
+
 </body>
 </html>
