@@ -91,7 +91,7 @@ a:hover {
 
 /* FORMULAIRES (Inscription & Connexion)*/
 
-#login, #register {
+#login, #register, #notation {
     background-color: #ffffff;
     padding: 30px;
     border-radius: 8px;
@@ -102,13 +102,13 @@ a:hover {
     margin: 40px auto;
 }
 
-#login h1, #register h1 {
+#login h1, #register h1, #notation h1 {
     color: var(--rouge-mosaique);
     text-align: center;
     margin-top: 0;
 }
 
-#login p, #register p {
+#login p, #register p, #notation p {
     text-align: center;
     margin-bottom: 25px;
     font-size: 0.9em;
@@ -127,7 +127,9 @@ label {
 input[type="text"], 
 input[type="email"], 
 input[type="password"], 
-input[type="date"] {
+input[type="date"],
+select,
+textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid var(--bordure-gris);
@@ -463,3 +465,100 @@ footer {
 .bleu { background-color: blue; color: white; }
 .vert { background-color: green; color: white; }
 .rouge { background-color: red; color: white; }
+
+
+/* PAGE ADMIN (Tableau de bord, Rôles) */
+
+.admin-container {
+    max-width: 1000px;
+    display: block; 
+}
+
+.admin-container .profil-infos {
+    width: 100%;
+}
+
+.role-livreur {
+    color: var(--rouge-mosaique);
+}
+
+.role-restaurateur {
+    color: var(--jaune-action);
+}
+
+.btn-small {
+    font-size: 0.8em;
+    padding: 5px 10px;
+}
+
+/* Filtres Admin */
+.admin-filters {
+    border: none;
+    padding: 0 0 15px 0;
+    justify-content: flex-start;
+}
+
+/* État "actif" pour un bouton de filtre */
+.filter-btn.active {
+    background: var(--rouge-mosaique);
+    color: white;
+}
+
+
+/* PAGE RESTAURATEUR (Tableau de bord, Colonnes) */
+
+.dashboard-main {
+    padding: 20px 5%;
+}
+
+.dashboard-title {
+    text-align: center;
+    color: var(--rouge-mosaique);
+}
+
+.dashboard-columns {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.dashboard-col {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Bordures supérieures pour différencier les colonnes */
+.col-prep {
+    border-top: 5px solid var(--jaune-action);
+}
+
+.col-livraison {
+    border-top: 5px solid #4CAF50;
+}
+
+/* Styles spécifiques pour les boîtes de commandes */
+.boite-commande-prep {
+    border-left: 4px solid var(--rouge-mosaique);
+}
+
+.boite-commande-livraison {
+    opacity: 0.8;
+}
+
+.list-commande {
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+.statut-en-cours {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.btn-full {
+    width: 100%;
+}
