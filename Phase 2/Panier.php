@@ -132,6 +132,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     </table>
 
+    <div style="text-align:right; margin-top:20px;">
+        <a href="Paiement.php" class="gros-bouton vert" style="display:inline-block; text-align:center; text-decoration:none;">
+            ✅ Passer au paiement
+        </a>
+    </div>
+
 <?php endif; ?>
     </section>
 </main>
