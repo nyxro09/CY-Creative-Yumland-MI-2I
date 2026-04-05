@@ -42,7 +42,15 @@ foreach ($categories as $categorie => $titre) :
                     <p><?php echo $plat['description']; ?></p>
                     <div class="card-footer">
                         <span class="price"><?php echo number_format($plat['prix'], 2, ',', ' '); ?>€</span>
-                        <button class="btn-order">AJOUTER</button>
+                        
+                        <form action="Panier.php" method="POST" style="display:inline;">
+                            <input type="hidden" name="action" value="ajouter">
+                            <input type="hidden" name="id" value="<?php echo $plat['id']; ?>">
+                            <input type="hidden" name="nom" value="<?php echo $plat['nom']; ?>">
+                            <input type="hidden" name="prix" value="<?php echo $plat['prix']; ?>">
+                            <button type="submit" class="btn-order">AJOUTER</button>
+                        </form>
+                        
                     </div>
                 </div>
 
