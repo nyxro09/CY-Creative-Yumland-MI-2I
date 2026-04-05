@@ -48,7 +48,7 @@
                             <td>13,40€</td>
                             <td class="statut-livre">Livrée</td>
                             <td>
-                                <a href="Notation.php" class="btn-order btn-small" style="display: inline-block;">⭐ Noter</a>
+                                <a href="Notation.php" class="btn-order btn-small" style="display: inline-block;"> Noter</a>
                             </td>
                         </tr>
                         <tr>
