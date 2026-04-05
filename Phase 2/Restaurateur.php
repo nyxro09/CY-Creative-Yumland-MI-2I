@@ -10,7 +10,7 @@
                 
                 <div class="boite-commande boite-commande-prep">
                     <h3>Commande #403 - 19h45</h3>
-                    <p><strong>Client :</strong> Youcef (À Emporter)</p>
+                    <p><strong>Client :</strong> Tortue Ninja (À Emporter)</p>
                     <hr>
                     <ul class="list-commande">
                         <li>2x Pizza Mosaïque</li>
@@ -22,7 +22,7 @@
 
                 <div class="boite-commande boite-commande-prep">
                     <h3>Commande #404 - 19h50</h3>
-                    <p><strong>Client :</strong> Ronyx (Livraison)</p>
+                    <p><strong>Client :</strong> Goku (Livraison)</p>
                     <hr>
                     <ul class="list-commande">
                         <li>1x Pizza Margherita</li>
@@ -38,8 +38,8 @@
                 
                 <div class="boite-commande boite-commande-livraison">
                     <h3>Commande #402 - 19h20</h3>
-                    <p><strong>Livreur :</strong> Paul (En route)</p>
-                    <p><strong>Client :</strong> Zachary (12 Rue de la Pizza)</p>
+                    <p><strong>Livreur :</strong> Ronyx (En route)</p>
+                    <p><strong>Client :</strong> Mazino (12 Rue de la Pizza)</p>
                     <hr>
                     <p class="statut-en-cours">Statut : En cours d'acheminement</p>
                 </div>
@@ -47,7 +47,7 @@
                 <div class="boite-commande boite-commande-livraison">
                     <h3>Commande #401 - 19h05</h3>
                     <p><strong>Livreur :</strong> Fiora (Sur place)</p>
-                    <p><strong>Client :</strong> Faker (8 Avenue du Fromage)</p>
+                    <p><strong>Client :</strong> Jean (8 Avenue du Fromage)</p>
                     <hr>
                     <p class="statut-en-cours">Statut : Arrivé chez le client</p>
                 </div>
