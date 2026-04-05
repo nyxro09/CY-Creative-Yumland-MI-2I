@@ -24,7 +24,6 @@ $paiement_ok = ($control === $control_valide) && ($statut === 'accepted');
             <p>Montant débité : <strong><?php echo number_format($montant, 2, ',', ' '); ?>€</strong></p>
 
             <?php
-            // 4. On vide le panier
             $_SESSION['panier'] = [];
             ?>
 
