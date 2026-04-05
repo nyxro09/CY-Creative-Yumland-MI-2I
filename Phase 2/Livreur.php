@@ -1,36 +1,74 @@
 <?php include('header.php'); ?>
 
-    <main>
-        <section id="page-livreur">
-            <h2>Course en cours #402</h2>
+<?php 
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
+        if ($_POST['action'] === 'livree') {
+            modifierStatutCommande($_POST['id_commande'], 'livree');
+        }  
+        if ($_POST['action'] === 'probleme') {
+            modifierStatutCommande($_POST['id_commande'], 'probleme');
+        }
+        header('Location: Livreur.php');
+        exit();
+    }
+?>
 
-            <div class="boite-client">
+<?php
+$commandes = getCommandes(); 
+$commandesLivraison = array_filter($commandes, fn($c) => $c['statut'] === 'en_livraison');
+$commande = reset($commandesLivraison);  
+
+$utilisateurs = getUtilisateurs();
+$adresseClient = 'Adresse non disponible';
+foreach ($utilisateurs as $user) {
+    if ($user['prenom'] . ' ' . $user['nom'] === $commande['client']) {
+        $adresseClient = $user['adresse'] ?? 'Adresse non disponible';
+        break;
+    }
+}
+?>
+
+<main> 
+    <section id="page-livreur">
+
+        <?php if (!$commande) : ?>
+            <h2>Aucune course en cours</h2>
+            <p style="text-align:center;">Pas de commande en livraison pour le moment.</p>
+
+        <?php else : ?>
+
+            <h2>Course en cours #<?php echo substr($commande['id'], -6); ?></h2>
+
+            <div class="boite-client">  
                 <h3>Infos Client</h3>
-                <p>👤 Marchand Jean</p>
-                <p>📞 06 12 34 56 78</p>
+                <p>👤 <?php echo $commande['client']; ?></p>
                 <hr>
-                <p>📍 12 Rue de la Pizza, 75000 Paris</p>
-                <p>🏢 3ème étage, Porte Gauche</p>
-                <p>🔑 Interphone : 1234</p>
-                <hr>
-                <p>📝 <em>Note : "Attention au chien en rentrant s'il vous plaît"</em></p>
+                <p>📍 <?php echo $adresseClient; ?></p>
             </div>
 
             <div class="boite-commande">
                 <h3>Détail Commande</h3>
-                <p>1x La Mosaïque</p>
-                <p>1x Tiramisu</p>
-                <p><strong>Total payé : 13,40€ (Déjà réglé)</strong></p>
+                <?php foreach ($commande['articles'] as $article) : ?>
+                    <p><?php echo $article['quantite']; ?>x <?php echo $article['nom']; ?></p>
+                <?php endforeach; ?>
+                <p><strong>Total payé : <?php echo number_format($commande['total'], 2, ',', ' '); ?>€ (Déjà réglé)</strong></p>
             </div>
 
-            <a href="https://maps.google.com/?q=12+Rue+de+la+Pizza,+75000+Paris" target="_blank" class="gros-bouton bleu" style="display: block; text-align: center; text-decoration: none; box-sizing: border-box;">🗺️ OUVRIR GPS</a>
+            <form action="Livreur.php" method="POST">
+                <input type="hidden" name="action" value="livree">
+                <input type="hidden" name="id_commande" value="<?php echo $commande['id']; ?>">
+                <button type="submit" class="gros-bouton vert">✅ LIVRAISON TERMINÉE</button>
+            </form>
 
-            <a href="tel:0612345678" class="gros-bouton bleu" style="display: block; text-align: center; text-decoration: none; box-sizing: border-box;">📞 APPELER</a>
+            <form action="Livreur.php" method="POST">
+                <input type="hidden" name="action" value="probleme">
+                <input type="hidden" name="id_commande" value="<?php echo $commande['id']; ?>">
+                <button type="submit" class="gros-bouton rouge"> ❌ PROBLÈME</button>
+            </form>
 
-            <button class="gros-bouton vert">✅ LIVRAISON TERMINÉE</button>
-            <button class="gros-bouton rouge">❌ PROBLÈME</button>
+        <?php endif; ?>
 
-        </section>
-    </main>
+    </section> 
+ </main>
 
 <?php include('footer.php'); ?>
