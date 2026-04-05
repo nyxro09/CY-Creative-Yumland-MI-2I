@@ -33,32 +33,32 @@
                     <tbody>
                         <tr>
                             <td>#U001</td>
-                            <td>Dupont Jean</td>
-                            <td>jean.dupont@email.com</td>
+                            <td>Marchand Jean</td>
+                            <td>jean.marchand@email.com</td>
                             <td><strong>Client</strong></td>
                             <td>12</td>
                             <td>
-                                <a href="Profil.html" class="filter-btn btn-small" style="display: inline-block;">Voir Profil</a>
+                                <a href="Profil.php" class="filter-btn btn-small" style="display: inline-block;">Voir Profil</a>
                             </td>
                         </tr>
                         <tr>
                             <td>#U002</td>
-                            <td>Youcef</td>
-                            <td>youcef.client@gmail.com</td>
+                            <td>Mazino Urek</td>
+                            <td>urek.mazino@gmail.com</td>
                             <td><strong>Client</strong></td>
                             <td>3</td>
                             <td>
-                                <a href="Profil.html" class="filter-btn btn-small" style="display: inline-block;">Voir Profil</a>
+                                <a href="Profil.php" class="filter-btn btn-small" style="display: inline-block;">Voir Profil</a>
                             </td>
                         </tr>
                         <tr>
-                            <td>#U003</td>
-                            <td>Ronyx</td>
-                            <td>ronyx.livreur1@gmail.com</td>
+                            <td>#L001</td>
+                            <td>Kiala Ronyx</td>
+                            <td>ronyx.kiala@mosaique.fr</td>
                             <td class="role-livreur"><strong>Livreur</strong></td>
                             <td>-</td>
                             <td>
-                                <a href="Profil.html" class="filter-btn btn-small" style="display: inline-block;">Voir Profil</a>
+                                <a href="Profil.php" class="filter-btn btn-small" style="display: inline-block;">Voir Profil</a>
                             </td>
                         </tr>
                         <tr>
@@ -68,7 +68,7 @@
                             <td class="role-restaurateur"><strong>Restaurateur</strong></td>
                             <td>-</td>
                             <td>
-                                <a href="Profil.html" class="filter-btn btn-small" style="display: inline-block;">Voir Profil</a>
+                                <a href="Profil.php" class="filter-btn btn-small" style="display: inline-block;">Voir Profil</a>
                             </td>
                         </tr>
                     </tbody>
