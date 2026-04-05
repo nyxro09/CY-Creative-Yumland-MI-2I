@@ -28,16 +28,15 @@ $paiement_ok = ($control === $control_valide) && ($statut === 'accepted');
                 'id' => $transaction,
                 'client' => $_SESSION['prenom'] . ' ' . $_SESSION['nom'],
                 'articles' => $_SESSION['panier'],
-                'total' => floatval($montant) ,
+                'total' => floatval($montant),
                 'statut' => 'en_attente',
-                'date' => date('d/m/Y H:i'),
-                ];
+                'date' => date('d/m/Y H:i')
+            ];
 
-                ajouterCommande($nouvelleCommande);
+            ajouterCommande($nouvelleCommande);
 
-                $_SESSION['panier'] = []
-                 ?>
-
+            $_SESSION['panier'] = [];
+            ?>
             <a href="Accueil.php" class="btn-order" style="display:inline-block; margin-top:15px;">
                 Retour à l'accueil
             </a>
