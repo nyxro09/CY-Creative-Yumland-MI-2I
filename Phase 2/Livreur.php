@@ -6,7 +6,7 @@
 
             <div class="boite-client">
                 <h3>Infos Client</h3>
-                <p>👤 Dupont Jean</p>
+                <p>👤 Marchand Jean</p>
                 <p>📞 06 12 34 56 78</p>
                 <hr>
                 <p>📍 12 Rue de la Pizza, 75000 Paris</p>
