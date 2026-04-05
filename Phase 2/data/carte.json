@@ -1,0 +1,168 @@
+{
+  "plats": [
+    {
+      "id": "P001",
+      "nom": "La Mosaïque",
+      "description": "Crème fraîche, Mozzarella, Poulet, Poivrons, Olives.",
+      "prix": 7.50,
+      "categorie": "Pizza",
+      "image": "images/pizza-mosaique.jpg",
+      "badge": "Nouveau"
+    },
+    {
+      "id": "P002",
+      "nom": "La Margherita",
+      "description": "Sauce tomate, Mozzarella,Basilic frais.",
+      "prix": 7.50,
+      "categorie": "Pizza",
+      "image": "images/pizza-Margherita.jpg",
+      "badge": ""
+    },
+    {
+      "id": "P003",
+      "nom": "La Calzone",
+      "description": "Sauce tomate, Fromage, Jambon, Champignon de Paris, Oeuf.",
+      "prix": 7.50,
+      "categorie": "Pizza",
+      "image": "images/pizza-Calzone.jpg",
+      "badge": ""
+    },
+    {
+      "id": "P004",
+      "nom": "La 4 Fromages",
+      "description": "Sauce tomate, Mozzarella, Reblochon, Chèvre, Bleu d'Auvergnes, Olives.",
+      "prix": 7.50,
+      "categorie": "Pizza",
+      "image": "images/pizza-4Fromages.jpg",
+      "badge": ""
+    },
+    {
+      "id": "P005",
+      "nom": "La Reine",
+      "description": "Sauce Tomate, Mozzarella, Jambon de dinde et Champignons.",
+      "prix": 7.50,
+      "categorie": "Pizza",
+      "image": "images/pizza-Reine.jpg",
+      "badge": ""
+    },
+    {
+      "id": "P006",
+      "nom": "L'Orientale",
+      "description": "Sauce Tomate, Mozzarella, Merguez, Poivrons, Oignons.",
+      "prix": 7.50,
+      "categorie": "Pizza",
+      "image": "images/pizza-Orientale.jpg",
+      "badge": ""
+    },
+    {
+      "id": "P007",
+      "nom": "Salade Cesar",
+      "description": "Laitue, Parmesan, Oeuf dur, Crouton, Sauce César.",
+      "prix": 6.50,
+      "categorie": "Salade",
+      "image": "images/SaladeCesar.jpg",
+      "badge": ""
+    },
+    {
+      "id": "P008",
+      "nom": "Salade Grecque",
+      "description": "Tomate, olive, concombre, poivrons vert.",
+      "prix": 6.50,
+      "categorie": "Salade",
+      "image": "images/salade-grecque.jpg",
+      "badge": ""
+    },
+    {
+      "id": "P009",
+      "nom": "Tiramisu Maison",
+      "description": "Véritable recette italienne au café.",
+      "prix": 4.50,
+      "categorie": "Dessert",
+      "image": "images/Tiramisu.jpg",
+      "badge": ""
+    },
+    {
+      "id": "P010",
+      "nom": "Cookie",
+      "description": "Cookie au chocolat.",
+      "prix": 4.50,
+      "categorie": "Dessert",
+      "image": "images/Cookie.jpg",
+      "badge": ""
+    },
+    {
+      "id": "P011",
+      "nom": "Brownie",
+      "description": "Brownie au chocolat et aux noix.",
+      "prix": 4.50,
+      "categorie": "Dessert",
+      "image": "images/Brownie.jpg",
+      "badge": ""
+    },
+    {
+      "id": "P012",
+      "nom": "Salade de Fruits",
+      "description": "Fruits frais de saison.",
+      "prix": 5.00,
+      "categorie": "Dessert",
+      "image": "images/salade-fruits.jpg",
+      "badge": ""
+    },
+    {
+      "id": "P013",
+      "nom": "Coca-Cola",
+      "description": "Canette 33cl bien fraîche.",
+      "prix": 1.20,
+      "categorie": "Boisson",
+      "image": "images/coca.jpg",
+      "badge": ""
+    },
+    {
+      "id": "P014",
+      "nom": "Oasis Tropical",
+      "description": "Canette 33cl.",
+      "prix": 1.20,
+      "categorie": "Boisson",
+      "image": "images/oasis.jpg",
+      "badge": ""
+    },
+    {
+      "id": "P015",
+      "nom": "Fanta Orange",
+      "description": "Canette 33cl.",
+      "prix": 1.20,
+      "categorie": "Boisson",
+      "image": "images/fanta.jpg",
+      "badge": ""
+    },
+    {
+      "id": "P016",
+      "nom": "Eau Evian",
+      "description": "Bouteille 50cl.",
+      "prix": 1.20,
+      "categorie": "Boisson",
+      "image": "images/evian.jpg",
+      "badge": ""
+    }
+  ],
+  "menus": [
+    {
+      "id": "M001",
+      "nom": "Menu Mosaïque",
+      "description": "1 Pizza Mosaïque + 1 Boisson",
+      "prix": 9.99
+    },
+    {
+      "id": "M002",
+      "nom": "Menu Complet",
+      "description": "1 Pizza Classique + 1 Salade + 1 Dessert + 1 Boisson",
+      "prix": 19.99
+    },
+    {
+      "id": "M003",
+      "nom": "Menu Solo",
+      "description": "1 Pizza Classique + 1 Dessert + 1 Boisson",
+      "prix": 12.99
+    }
+  ]
+}
