@@ -17,11 +17,9 @@ $retour = 'http://localhost/Phase2/RetourPaiement.php';
 
 $control = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur . "#" . $retour . "#");
 ?>
-
 <main>
     <section id="paiement">
         <h1>💳 Validation de la commande</h1>
-
         <h2>Récapitulatif</h2>
         <table class="table-commandes">
             <thead>
@@ -60,5 +58,4 @@ $control = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur .
         <a href="Panier.php" style="display:block; text-align:center; margin-top:15px;">← Retour au panier</a>
     </section>
 </main>
-
 <?php include('footer.php'); ?>
