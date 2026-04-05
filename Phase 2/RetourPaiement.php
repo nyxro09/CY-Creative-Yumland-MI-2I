@@ -3,13 +3,13 @@ include('header.php');
 require('getapikey.php');
 
 $transaction = $_GET['transaction'] ?? '';
-$montant     = $_GET['montant'] ?? '';
-$vendeur     = $_GET['vendeur'] ?? '';
-$statut      = $_GET['status'] ?? '';
-$control     = $_GET['control'] ?? '';
+$montant = $_GET['montant'] ?? '';
+$vendeur = $_GET['vendeur'] ?? '';
+$statut = $_GET['status'] ?? '';
+$control = $_GET['control'] ?? '';
 
-$api_key         = getAPIKey($vendeur);
-$control_valide  = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur . "#" . $statut . "#");
+$api_key = getAPIKey($vendeur);
+$control_valide = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur . "#" . $statut . "#");
 
 $paiement_ok = ($control === $control_valide) && ($statut === 'accepted');
 ?>
@@ -24,8 +24,19 @@ $paiement_ok = ($control === $control_valide) && ($statut === 'accepted');
             <p>Montant débité : <strong><?php echo number_format($montant, 2, ',', ' '); ?>€</strong></p>
 
             <?php
-            $_SESSION['panier'] = [];
-            ?>
+            $nouvelleCommande = [
+                'id' => $transaction,
+                'client' => $_SESSION['prenom'] . ' ' . $_SESSION['nom'],
+                'articles' => $_SESSION['panier'],
+                'total' => floatval($montant) ,
+                'statut' => 'en_attente',
+                'date' => date('d/m/Y H:i'),
+                ];
+
+                ajouterCommande($nouvelleCommande);
+
+                $_SESSION['panier'] = []
+                 ?>
 
             <a href="Accueil.php" class="btn-order" style="display:inline-block; margin-top:15px;">
                 Retour à l'accueil
