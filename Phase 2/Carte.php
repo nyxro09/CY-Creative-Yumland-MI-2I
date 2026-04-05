@@ -1,6 +1,10 @@
 <?php include('header.php'); ?>
 
     <main>
+        <div style="text-align:right; padding: 10px 20px;">
+            <a href="Panier.php" class="btn-order">🛒 Voir mon panier</a>
+        </div>
+
         <section class="filter-container">
             <div class="search-box">
                 <input type="text" placeholder="Rechercher (ex: Margherita, Tiramisu)...">
@@ -43,14 +47,14 @@ foreach ($categories as $categorie => $titre) :
                     <div class="card-footer">
                         <span class="price"><?php echo number_format($plat['prix'], 2, ',', ' '); ?>€</span>
                         
-                        <form action="Panier.php" method="POST" style="display:inline;">
-                            <input type="hidden" name="action" value="ajouter">
-                            <input type="hidden" name="id" value="<?php echo $plat['id']; ?>">
-                            <input type="hidden" name="nom" value="<?php echo $plat['nom']; ?>">
-                            <input type="hidden" name="prix" value="<?php echo $plat['prix']; ?>">
-                            <button type="submit" class="btn-order">AJOUTER</button>
-                        </form>
-                        
+                    <form action="Panier.php" method="POST" style="display:inline;">
+                        <input type="hidden" name="action" value="ajouter">
+                        <input type="hidden" name="id" value="<?php echo $plat['id']; ?>">
+                        <input type="hidden" name="nom" value="<?php echo $plat['nom']; ?>">
+                        <input type="hidden" name="prix" value="<?php echo $plat['prix']; ?>">
+                        <button type="submit" class="btn-order">AJOUTER</button>
+                    </form>
+
                     </div>
                 </div>
 
