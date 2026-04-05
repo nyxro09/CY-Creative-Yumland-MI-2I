@@ -73,6 +73,14 @@
         "mot_de_passe": "livreur123",
         "role": "livreur"
     },
+        {
+        "id": "L001",
+        "nom": "Castado",
+        "prenom": "Fiora",
+        "email": "fiora.castado@mosaique.fr",
+        "mot_de_passe": "livreur456",
+        "role": "livreur"
+    },
     {
         "id": "R001",
         "nom": "Resto",
