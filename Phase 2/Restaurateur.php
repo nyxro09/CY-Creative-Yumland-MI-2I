@@ -70,9 +70,6 @@
         <?php endforeach; ?>
 
             </section>
-
-
-
         </div>
     </main>
 
