@@ -16,7 +16,7 @@ $toutesLesCommandes = getCommandes();
     <p>Géstion des livraisons.</p>
 
     <div class="livreur-colonnes" style="display: flex; gap: 20px; margin-top: 20px;">
-        <section class="livreur-colonne" style="flex: 1; background: #f9f9f9; padding: 15px; border-radius: 8px;">
+        <section class="livreur-colonne" style="flex: 1; background: var(--card-bg); padding: 15px; border-radius: 8px; border-top: 5px solid var(--rouge-mosaique);">
     <h2>📦 Commandes à récupérer (Prêtes)</h2>
     <div id="liste-pretes">
         <?php foreach ($toutesLesCommandes as $commande) : ?>
@@ -34,7 +34,7 @@ $toutesLesCommandes = getCommandes();
     </div>
        </section>
 
-        <section class="livreur-colonne" style="flex: 1; background: #fffde7; padding: 15px; border-radius: 8px;">
+        <section class="livreur-colonne" style="flex: 1; background: var(--card-bg); padding: 15px; border-radius: 8px; border-top: 5px solid #4CAF50;">
             <h2>🛵 Ma Tournée (En livraison)</h2>
             <div id="liste-en-livraison">
                 <?php foreach ($toutesLesCommandes as $commande) : ?>
