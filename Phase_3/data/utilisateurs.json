@@ -1,0 +1,113 @@
+[
+    {
+        "id": "U001",
+        "nom": "Marchand",
+        "prenom": "Jean",
+        "email": "jean.marchand@email.com",
+        "mot_de_passe": "client123",
+        "role": "client",
+        "adresse": "12 Rue de la Pizza, 75000 Paris",
+        "points_fidelite": 150,
+        "est_bloque": false
+    },
+    {
+        "id": "U002",
+        "nom": "Mazino",
+        "prenom": "Urek",
+        "email": "urek.mazino@email.com",
+        "mot_de_passe": "mazino002",
+        "role": "client",
+        "adresse": "6 Rue Arthur Rimbaud, 60000 Beauvais",
+        "points_fidelite": 300,
+        "est_bloque": false
+    },
+    {
+        "id": "U003",
+        "nom": "Son",
+        "prenom": "Goku",
+        "email": "son.goku@email.com",
+        "mot_de_passe": "goku777",
+        "role": "client",
+        "adresse": "12 Rue d'Amsterdam, 75009 Paris",
+        "points_fidelite": 999,
+        "est_bloque": false
+    },
+    {
+        "id": "U004",
+        "nom": "Tortue",
+        "prenom": "Ninja",
+        "email": "tortue.ninja@email.com",
+        "mot_de_passe": "turtle456",
+        "role": "client",
+        "adresse": "15 Rue de Rivoli, 75004 Paris",
+        "points_fidelite": 300,
+        "est_bloque": false
+    },
+    {
+        "id": "U005",
+        "nom": "Messi",
+        "prenom": "Lionel",
+        "email": "lionel.messi@email.com",
+        "mot_de_passe": "messi010",
+        "role": "client",
+        "adresse": "89 Avenue Victor Hugo, 75016 Paris",
+        "points_fidelite": 0,
+        "est_bloque": false
+    },
+    {
+        "id": "A001",
+        "nom": "Admin",
+        "prenom": "Principal",
+        "email": "admin@mosaique.fr",
+        "mot_de_passe": "admin123",
+        "role": "admin",
+        "est_bloque": false
+    },
+    {
+        "id": "A002",
+        "nom": "Admin2",
+        "prenom": "Second",
+        "email": "admin2@mosaique.fr",
+        "mot_de_passe": "admin456",
+        "role": "admin",
+        "est_bloque": false
+    },
+    {
+        "id": "L001",
+        "nom": "Kiala",
+        "prenom": "Ronyx",
+        "email": "ronyx.kiala@mosaique.fr",
+        "mot_de_passe": "livreur123",
+        "role": "livreur",
+        "est_bloque": false
+    },
+    {
+        "id": "L002",
+        "nom": "Castado",
+        "prenom": "Fiora",
+        "email": "fiora.castado@mosaique.fr",
+        "mot_de_passe": "livreur456",
+        "role": "livreur",
+        "est_bloque": false
+    },
+    {
+        "id": "R001",
+        "nom": "Resto",
+        "prenom": "Zachary",
+        "email": "zachary.resto@hotmail.com",
+        "mot_de_passe": "resto123",
+        "role": "restaurateur",
+        "est_bloque": false
+    },
+    {
+        "id": "U1775381200",
+        "nom": "Leroy",
+        "prenom": "Axel",
+        "email": "axel.leroy@email.com",
+        "mot_de_passe": "leroy123",
+        "role": "client",
+        "adresse": "12 rue de la Tour, 60000 Beauvais",
+        "points_fidelite": 0,
+        "est_bloque": false
+    }
+]

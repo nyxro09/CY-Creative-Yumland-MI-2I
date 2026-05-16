@@ -1,0 +1,564 @@
+/* VARIABLES GLOBALES*/
+:root {
+    --rouge-mosaique: #E30613;
+    --jaune-action: #FFCC00;
+    --noir-menu: #1a1a1a;
+    --gris-fond: #f8f8f8;
+    --texte-sombre: #333333;
+    --bordure-gris: #CCCCCC;
+}
+
+/*RESET & REGLAGES DE BASE */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--gris-fond);
+    color: var(--texte-sombre);
+    margin: 0;
+    padding-top: 120px; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+a {
+    color: var(--rouge-mosaique);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* NAVIGATION & LOGO*/
+.navbar {
+    background-color: var(--noir-menu);
+    border-bottom: 4px solid var(--rouge-mosaique);
+    padding: 10px 5%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 85px; 
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.nav-links a.active, .nav-links a:hover {
+    color: var(--jaune-action);
+    text-decoration: none;
+}
+
+/* FORMULAIRES (Inscription & Connexion)*/
+
+#login, #register, #notation {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    border-top: 5px solid var(--rouge-mosaique);
+    margin: 40px auto;
+}
+
+#login h1, #register h1, #notation h1 {
+    color: var(--rouge-mosaique);
+    text-align: center;
+    margin-top: 0;
+}
+
+#login p, #register p, #notation p {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 0.9em;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--bordure-gris);
+    border-radius: 4px;
+}
+
+input:focus {
+    border-color: var(--rouge-mosaique);
+    outline: none;
+    box-shadow: 0 0 5px rgba(227, 6, 19, 0.2);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+button[type="submit"], .btn-order {
+    background-color: var(--jaune-action);
+    color: #000;
+    text-transform: uppercase;
+}
+
+button[type="submit"]:hover, .btn-order:hover {
+    background-color: #e6b800;
+}
+
+button[type="reset"] {
+    background-color: #f1f1f1;
+    color: #777;
+}
+
+/* PAGE D'ACCUEIL (Bannière, Filtres, Cartes) */
+
+.promo-banner {
+    background-color: var(--rouge-mosaique);
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.promo-banner h1 {
+    margin: 0 0 5px 0;
+    font-size: 1.8em;
+}
+
+.promo-banner p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.filter-container {
+    background: white;
+    padding: 15px 5%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--bordure-gris);
+}
+
+.search-box input {
+    width: 250px;
+    padding: 8px;
+}
+
+.filter-btn {
+    width: auto;
+    padding: 8px 15px;
+    background: #eee;
+    color: #333;
+    border-radius: 20px;
+    margin-top: 0;
+}
+
+.filter-btn:hover {
+    background: var(--rouge-mosaique);
+    color: white;
+}
+
+.menu-category {
+    padding: 20px 5%;
+}
+
+.menu-category h2 {
+    border-left: 5px solid var(--rouge-mosaique);
+    padding-left: 15px;
+    text-transform: uppercase;
+    color: #222;
+}
+
+.grid-plats {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--rouge-mosaique);
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.card-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-content h3 {
+    margin: 0 0 10px 0;
+    color: var(--rouge-mosaique);
+}
+
+.card-content p {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.price {
+    font-weight: 900;
+    font-size: 1.2em;
+    color: var(--noir-menu);
+}
+
+.btn-order {
+    width: auto;
+    margin-top: 0;
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+/* PIED DE PAGE */
+
+footer {
+    background: var(--noir-menu);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9em;
+    margin-top: 40px;
+}
+
+/* PAGE PROFIL */
+
+.profil-main {
+    padding: 40px 5%;
+}
+
+.profil-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profil-infos, .profil-historique {
+    flex: 1;
+    min-width: 300px;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid var(--rouge-mosaique);
+}
+
+.profil-infos h2, .profil-historique h3 {
+    color: var(--rouge-mosaique);
+    margin-top: 0;
+    border-bottom: 2px solid var(--bordure-gris);
+    padding-bottom: 10px;
+}
+
+/* Les groupes d'informations et le Crayon */
+.info-groupe {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.info-groupe label {
+    font-weight: bold;
+    color: #555;
+    margin: 0;
+    width: 30%;
+}
+
+.info-groupe p {
+    margin: 0;
+    flex-grow: 1;
+    color: var(--texte-sombre);
+}
+
+.btn-edit {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    width: auto;
+    padding: 5px 10px;
+    transition: transform 0.2s;
+}
+
+.btn-edit:hover {
+    transform: scale(1.2);
+    background: none;
+}
+
+/* Carte Fidélité */
+.fidelite-carte {
+    background: #fff9e6;
+    border: 1px dashed var(--jaune-action);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.promo-text {
+    color: var(--rouge-mosaique);
+    font-weight: bold;
+}
+
+/* Tableau d'historique des commandes */
+.table-commandes {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.table-commandes th, .table-commandes td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-commandes th {
+    background-color: var(--noir-menu);
+    color: white;
+}
+
+.statut-livre {
+    color: green;
+    font-weight: bold;
+}
+
+/*PAGE LIVREUR */
+
+#page-livreur {
+    padding: 20px;
+    max-width: 400px; /* Taille d'un téléphone */
+    margin: 0 auto;   /* Pour centrer sur l'écran d'ordinateur */
+    background-color: #f1f1f1;
+}
+
+#page-livreur h2 {
+    text-align: center;
+    color: var(--rouge-mosaique);
+}
+
+.boite-client, .boite-commande {
+    background-color: white;
+    border: 2px solid var(--bordure-gris);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.boite-client h3, .boite-commande h3 {
+    margin-top: 0;
+    text-decoration: underline;
+}
+
+.boite-client p {
+    font-size: 1.2em; /* Texte plus gros pour lire dehors */
+    font-weight: bold;
+}
+
+/* Les boutons pour les gros gants */
+.gros-bouton {
+    width: 100%;
+    padding: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.bleu { background-color: blue; color: white; }
+.vert { background-color: green; color: white; }
+.rouge { background-color: red; color: white; }
+
+
+/* PAGE ADMIN (Tableau de bord, Rôles) */
+
+.admin-container {
+    max-width: 1000px;
+    display: block; 
+}
+
+.admin-container .profil-infos {
+    width: 100%;
+}
+
+.role-livreur {
+    color: var(--rouge-mosaique);
+}
+
+.role-restaurateur {
+    color: var(--jaune-action);
+}
+
+.btn-small {
+    font-size: 0.8em;
+    padding: 5px 10px;
+}
+
+/* Filtres Admin */
+.admin-filters {
+    border: none;
+    padding: 0 0 15px 0;
+    justify-content: flex-start;
+}
+
+/* État "actif" pour un bouton de filtre */
+.filter-btn.active {
+    background: var(--rouge-mosaique);
+    color: white;
+}
+
+
+/* PAGE RESTAURATEUR (Tableau de bord, Colonnes) */
+
+.dashboard-main {
+    padding: 20px 5%;
+}
+
+.dashboard-title {
+    text-align: center;
+    color: var(--rouge-mosaique);
+}
+
+.dashboard-columns {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.dashboard-col {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Bordures supérieures pour différencier les colonnes */
+.col-prep {
+    border-top: 5px solid var(--jaune-action);
+}
+
+.col-livraison {
+    border-top: 5px solid #4CAF50;
+}
+
+/* Styles spécifiques pour les boîtes de commandes */
+.boite-commande-prep {
+    border-left: 4px solid var(--rouge-mosaique);
+}
+
+.boite-commande-livraison {
+    opacity: 0.8;
+}
+
+.list-commande {
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+.statut-en-cours {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.btn-full {
+    width: 100%;
+}
