@@ -30,10 +30,12 @@
                     <input type="email" id="email" name="email" placeholder="exemple@gmail.com" required>
                 </div>
                 
-                <div>
-                    <label>Mot de Passe :</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
+                <div style="position: relative; margin-bottom: 25px;">
+                <label>Mot de Passe :</label>
+                <input type="password" id="password" name="password" required style="padding-right: 40px;">
+                <button type="button" id="toggle-pwd" style="position: absolute; right: 10px; top: 32px; background: none; border: none; font-size: 1.2rem; width: auto; padding: 0; cursor: pointer; margin-top: 0;">👁️</button>
+                <small id="char-count" style="position: absolute; bottom: -20px; left: 0; font-weight: bold; color: var(--texte-principal);">0/20 caractères</small>
+            </div>
                 
                 <button type="submit">S'inscrire</button>
                 <button type="reset">Réinitialiser</button> 
