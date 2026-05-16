@@ -1,6 +1,5 @@
-// 1. VARIABLE GLOBALE : Elle mémorise les plats affichés pour pouvoir les trier sans rappeler le serveur
 let platsActuels = [];
-let categorieActuelle = ''; // Mémorise la catégorie pour l'affichage du titre
+let categorieActuelle = ''; 
 
 async function chargerPlats(categorie = '') {
     try {
@@ -10,18 +9,12 @@ async function chargerPlats(categorie = '') {
         }
 
         const reponse = await fetch(url);
-
-        if (!reponse.ok) {
-            throw new Error(`Erreur HTTP: ${reponse.status}`);
-        }
+        if (!reponse.ok) throw new Error(`Erreur HTTP: ${reponse.status}`);
 
         const plats = await reponse.json();
-        
-        // 2. SAUVEGARDE : On stocke les données récupérées en mémoire locale
         platsActuels = plats;
         categorieActuelle = categorie;
 
-        // 3. AFFICHAGE
         afficherPlats(platsActuels, categorieActuelle);
 
     } catch (erreur) {
@@ -29,11 +22,9 @@ async function chargerPlats(categorie = '') {
     }
 }
 
-// 4. NOUVELLE FONCTION DE TRI LOCAL
 function trierPlats(ordre) {
     if (platsActuels.length === 0) return;
 
-    // On fait une copie du tableau pour le trier proprement
     let platsTries = [...platsActuels];
 
     if (ordre === 'croissant') {
@@ -42,7 +33,6 @@ function trierPlats(ordre) {
         platsTries.sort((a, b) => parseFloat(b.prix) - parseFloat(a.prix));
     }
 
-    // On réaffiche les cartes avec le tableau fraîchement trié
     afficherPlats(platsTries, categorieActuelle);
 }
 
@@ -50,11 +40,9 @@ function afficherPlats(plats, categorie) {
     const conteneur = document.getElementById('grille-dynamique');
     const titre = document.getElementById('titre-categorie');
     
-    // Mise à jour du titre
     if (categorie === '') titre.innerText = 'Toute notre carte';
     else titre.innerText = 'Nos ' + categorie + 's';
 
-    // Vidage de la grille
     conteneur.innerHTML = ''; 
 
     if (plats.length === 0) {
@@ -62,7 +50,6 @@ function afficherPlats(plats, categorie) {
         return;
     }
 
-    // Reconstruction HTML
     plats.forEach(plat => {
         let badgeHtml = '';
         if (plat.badge && plat.badge !== "") {
@@ -70,6 +57,9 @@ function afficherPlats(plats, categorie) {
         }
 
         let prixFormate = parseFloat(plat.prix).toFixed(2).replace('.', ',');
+
+        // Échappement des apostrophes pour éviter de casser la chaîne de caractères JS du onclick
+        const nomSecurise = plat.nom.replace(/'/g, "\\'");
 
         const carteHtml = `
             <article class="card">
@@ -82,13 +72,9 @@ function afficherPlats(plats, categorie) {
                     <div class="card-footer">
                         <span class="price">${prixFormate} €</span>
                         
-                        <form action="Panier.php" method="POST" style="display:inline;">
-                            <input type="hidden" name="action" value="ajouter">
-                            <input type="hidden" name="id" value="${plat.id}">
-                            <input type="hidden" name="nom" value="${plat.nom}">
-                            <input type="hidden" name="prix" value="${plat.prix}">
-                            <button type="submit" class="btn-order">AJOUTER</button>
-                        </form>
+                        <button class="btn-order" onclick="ajouterAuPanier('${plat.id}', '${nomSecurise}', ${plat.prix}, this)">
+                            AJOUTER
+                        </button>
                     </div>
                 </div>
             </article>
@@ -98,7 +84,60 @@ function afficherPlats(plats, categorie) {
     });
 }
 
-// Lancement au démarrage
+// NOUVELLE FONCTION ASYNCHRONE D'AJOUT ET D'ANIMATION
+async function ajouterAuPanier(idPlat, nomPlat, prixPlat, bouton) {
+    bouton.disabled = true;
+
+    try {
+        const reponse = await fetch('api_add_cart.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: idPlat, nom: nomPlat, prix: prixPlat })
+        });
+
+        const data = await reponse.json();
+
+        if (data.success) {
+            // 1. Déclenchement de l'animation de succès sur le bouton cliqué
+            bouton.classList.add('btn-added');
+            bouton.innerText = '✓ AJOUTÉ';
+
+            // 2. Création et injection dynamique du "Toast" d'animation
+            creerToastNotification(`🛒 ${nomPlat} a été ajouté au panier !`);
+
+            // 3. Remise à l'état initial du bouton après la fin de la micro-interaction
+            setTimeout(() => {
+                bouton.classList.remove('btn-added');
+                bouton.innerText = 'AJOUTER';
+                bouton.disabled = false;
+            }, 1200);
+
+        } else {
+            alert("Erreur lors de l'ajout : " + data.message);
+            bouton.disabled = false;
+        }
+
+    } catch (erreur) {
+        console.error("Erreur réseau panier :", erreur);
+        alert("Impossible de communiquer avec le panier.");
+        bouton.disabled = false;
+    }
+}
+
+// Fonction utilitaire pour générer le composant de notification volant
+function creerToastNotification(message) {
+    const toast = document.createElement('div');
+    toast.className = 'cart-toast';
+    toast.innerHTML = `<span>${message}</span>`;
+    
+    document.body.appendChild(toast);
+
+    // Suppression automatique du DOM une fois que l'animation de sortie en CSS est terminée
+    setTimeout(() => {
+        toast.remove();
+    }, 2700); // 400ms apparition + 1900ms attente + 400ms disparition
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     chargerPlats(''); 
 });
