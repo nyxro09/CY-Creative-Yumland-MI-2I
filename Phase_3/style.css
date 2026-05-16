@@ -14,6 +14,7 @@
     --texte-principal: var(--texte-sombre);
     --card-bg: #ffffff;
     --border-color: var(--bordure-gris);
+    --bg-input: #ffffff; /* Nouvelle variable pour les formulaires et filtres */
 }
 
 /* COULEURS DU MODE SOMBRE */
@@ -23,6 +24,7 @@ body.dark-theme {
     --texte-principal: #ffffff;
     --card-bg: #1e1e1e;
     --border-color: #333333;
+    --bg-input: #2a2a2a; /* Fond gris foncé pour les champs et boutons en dark mode */
 }
 
 /* RESET & REGLAGES DE BASE */
@@ -35,18 +37,23 @@ body.dark-theme {
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: var(--bg-principal); /* Utilisation de la variable */
-    color: var(--texte-principal);         /* Utilisation de la variable */
+    background-color: var(--bg-principal);
+    color: var(--texte-principal);
     margin: 0;
     padding-top: 120px; 
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transition fluide */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 main {
     flex-grow: 1;
+    color: var(--texte-principal);
+}
+
+/* FORCER TOUS LES TITRES A UTILISER LA VARIABLE DE TEXTE */
+h1, h2, h3, h4, h5, h6 {
     color: var(--texte-principal);
 }
 
@@ -112,7 +119,7 @@ a:hover {
 /* FORMULAIRES (Inscription & Connexion)*/
 
 #login, #register, #notation {
-    background-color: var(--card-bg);;
+    background-color: var(--card-bg);
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -120,12 +127,6 @@ a:hover {
     max-width: 400px;
     border-top: 5px solid var(--rouge-mosaique);
     margin: 40px auto;
-}
-
-#login h1, #register h1, #notation h1 {
-    color: var(--rouge-mosaique);
-    text-align: center;
-    margin-top: 0;
 }
 
 #login p, #register p, #notation p {
@@ -142,8 +143,10 @@ label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
+    color: var(--texte-principal);
 }
 
+/* Adaptation des champs de texte pour le mode sombre */
 input[type="text"], 
 input[type="email"], 
 input[type="password"], 
@@ -152,8 +155,10 @@ select,
 textarea {
     width: 100%;
     padding: 10px;
-    border: 1px solid var(--bordure-gris);
+    border: 1px solid var(--border-color);
     border-radius: 4px;
+    background-color: var(--bg-input);
+    color: var(--texte-principal);
 }
 
 input:focus {
@@ -184,8 +189,9 @@ button[type="submit"]:hover, .btn-order:hover {
 }
 
 button[type="reset"] {
-    background-color: #f1f1f1;
-    color: #777;
+    background-color: var(--bg-input);
+    color: var(--texte-principal);
+    border: 1px solid var(--border-color);
 }
 
 /* PAGE D'ACCUEIL (Bannière, Filtres, Cartes) */
@@ -200,22 +206,24 @@ button[type="reset"] {
 .promo-banner h1 {
     margin: 0 0 5px 0;
     font-size: 1.8em;
+    color: white;
 }
 
 .promo-banner p {
     margin: 0;
     font-size: 0.9em;
+    color: white;
 }
 
 .filter-container {
-    background: white;
+    background: var(--card-bg);
     padding: 15px 5%;
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid var(--bordure-gris);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .search-box input {
@@ -226,8 +234,9 @@ button[type="reset"] {
 .filter-btn {
     width: auto;
     padding: 8px 15px;
-    background: #eee;
-    color: #333;
+    background: var(--bg-input);
+    color: var(--texte-principal);
+    border: 1px solid var(--border-color);
     border-radius: 20px;
     margin-top: 0;
 }
@@ -235,6 +244,7 @@ button[type="reset"] {
 .filter-btn:hover {
     background: var(--rouge-mosaique);
     color: white;
+    border-color: var(--rouge-mosaique);
 }
 
 .menu-category {
@@ -245,7 +255,6 @@ button[type="reset"] {
     border-left: 5px solid var(--rouge-mosaique);
     padding-left: 15px;
     text-transform: uppercase;
-    color: #222;
 }
 
 .grid-plats {
@@ -256,9 +265,9 @@ button[type="reset"] {
 
 .card {
     background: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -296,7 +305,7 @@ button[type="reset"] {
 
 .card-content p {
     font-size: 0.9em;
-    color: #666;
+    color: var(--texte-principal);
     margin-bottom: 15px;
     flex-grow: 1;
 }
@@ -311,7 +320,7 @@ button[type="reset"] {
 .price {
     font-weight: 900;
     font-size: 1.2em;
-    color: var(--noir-menu);
+    color: var(--texte-principal);
 }
 
 .btn-order {
@@ -324,7 +333,7 @@ button[type="reset"] {
 /* PIED DE PAGE */
 
 footer {
-    background: var(--noir-menu);
+    background: var(--bg-navbar);
     color: white;
     text-align: center;
     padding: 15px;
@@ -352,29 +361,27 @@ footer {
     background: var(--card-bg);
     padding: 25px;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     border-top: 5px solid var(--rouge-mosaique);
 }
 
 .profil-infos h2, .profil-historique h3 {
     color: var(--rouge-mosaique);
     margin-top: 0;
-    border-bottom: 2px solid var(--bordure-gris);
+    border-bottom: 2px solid var(--border-color);
     padding-bottom: 10px;
 }
 
-/* Les groupes d'informations et le Crayon */
 .info-groupe {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-color);
     padding: 15px 0;
 }
 
 .info-groupe label {
     font-weight: bold;
-    color: #555;
+    color: var(--texte-principal);
     margin: 0;
     width: 30%;
 }
@@ -382,7 +389,7 @@ footer {
 .info-groupe p {
     margin: 0;
     flex-grow: 1;
-    color: var(--texte-sombre);
+    color: var(--texte-principal);
 }
 
 .btn-edit {
@@ -393,6 +400,7 @@ footer {
     width: auto;
     padding: 5px 10px;
     transition: transform 0.2s;
+    color: var(--texte-principal);
 }
 
 .btn-edit:hover {
@@ -402,7 +410,7 @@ footer {
 
 /* Carte Fidélité */
 .fidelite-carte {
-    background: #fff9e6;
+    background: var(--card-bg);
     border: 1px dashed var(--jaune-action);
     padding: 15px;
     border-radius: 8px;
@@ -425,11 +433,11 @@ footer {
 .table-commandes th, .table-commandes td {
     padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .table-commandes th {
-    background-color: var(--noir-menu);
+    background-color: var(--bg-navbar);
     color: white;
 }
 
@@ -442,9 +450,9 @@ footer {
 
 #page-livreur {
     padding: 20px;
-    max-width: 400px; /* Taille d'un téléphone */
-    margin: 0 auto;   /* Pour centrer sur l'écran d'ordinateur */
-    background-color: #f1f1f1;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: var(--bg-principal);
 }
 
 #page-livreur h2 {
@@ -453,8 +461,8 @@ footer {
 }
 
 .boite-client, .boite-commande {
-    background-color: white;
-    border: 2px solid var(--bordure-gris);
+    background-color: var(--card-bg);
+    border: 2px solid var(--border-color);
     padding: 15px;
     margin-bottom: 20px;
     border-radius: 5px;
@@ -466,11 +474,10 @@ footer {
 }
 
 .boite-client p {
-    font-size: 1.2em; /* Texte plus gros pour lire dehors */
+    font-size: 1.2em; 
     font-weight: bold;
 }
 
-/* Les boutons pour les gros gants */
 .gros-bouton {
     width: 100%;
     padding: 20px;
@@ -487,7 +494,7 @@ footer {
 .rouge { background-color: red; color: white; }
 
 
-/* PAGE ADMIN (Tableau de bord, Rôles) */
+/* PAGE ADMIN */
 
 .admin-container {
     max-width: 1000px;
@@ -511,21 +518,19 @@ footer {
     padding: 5px 10px;
 }
 
-/* Filtres Admin */
 .admin-filters {
     border: none;
     padding: 0 0 15px 0;
     justify-content: flex-start;
 }
 
-/* État "actif" pour un bouton de filtre */
 .filter-btn.active {
     background: var(--rouge-mosaique);
     color: white;
 }
 
 
-/* PAGE RESTAURATEUR (Tableau de bord, Colonnes) */
+/* PAGE RESTAURATEUR */
 
 .dashboard-main {
     padding: 20px 5%;
@@ -545,13 +550,12 @@ footer {
 .dashboard-col {
     flex: 1;
     min-width: 300px;
-    background: white;
+    background: var(--card-bg);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 1px solid var(--border-color);
 }
 
-/* Bordures supérieures pour différencier les colonnes */
 .col-prep {
     border-top: 5px solid var(--jaune-action);
 }
@@ -560,7 +564,6 @@ footer {
     border-top: 5px solid #4CAF50;
 }
 
-/* Styles spécifiques pour les boîtes de commandes */
 .boite-commande-prep {
     border-left: 4px solid var(--rouge-mosaique);
 }
