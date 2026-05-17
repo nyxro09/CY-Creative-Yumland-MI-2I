@@ -4,7 +4,7 @@
       "id": "P001",
       "nom": "La Mosaïque",
       "description": "Crème fraîche, Mozzarella, Poulet, Poivrons, Olives.",
-      "prix": 7.50,
+      "prix": 10.50,
       "categorie": "Pizza",
       "image": "images/pizza-mosaique.jpg",
       "badge": "Nouveau"
@@ -22,7 +22,7 @@
       "id": "P003",
       "nom": "La Calzone",
       "description": "Sauce tomate, Fromage, Jambon, Champignon de Paris, Oeuf.",
-      "prix": 7.50,
+      "prix": 8.50,
       "categorie": "Pizza",
       "image": "images/pizza-Calzone.jpg",
       "badge": ""
@@ -31,7 +31,7 @@
       "id": "P004",
       "nom": "La 4 Fromages",
       "description": "Sauce tomate, Mozzarella, Reblochon, Chèvre, Bleu d'Auvergnes, Olives.",
-      "prix": 7.50,
+      "prix": 8.50,
       "categorie": "Pizza",
       "image": "images/pizza-4Fromages.jpg",
       "badge": ""
@@ -40,7 +40,7 @@
       "id": "P005",
       "nom": "La Reine",
       "description": "Sauce Tomate, Mozzarella, Jambon de dinde et Champignons.",
-      "prix": 7.50,
+      "prix": 8.50,
       "categorie": "Pizza",
       "image": "images/pizza-Reine.jpg",
       "badge": ""
@@ -49,7 +49,7 @@
       "id": "P006",
       "nom": "L'Orientale",
       "description": "Sauce Tomate, Mozzarella, Merguez, Poivrons, Oignons.",
-      "prix": 7.50,
+      "prix": 8.50,
       "categorie": "Pizza",
       "image": "images/pizza-Orientale.jpg",
       "badge": ""
