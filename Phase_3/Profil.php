@@ -2,10 +2,33 @@
 include('header.php'); 
 require_once('fonctions.php');
 
-// Sécurité : Si l'utilisateur n'est pas connecté, on le dégage vers la page de connexion
 if (!isset($_SESSION['email'])) {
     header("Location: Login.php");
     exit();
+}
+
+// 1. On charge les commandes UNE SEULE FOIS pour toute la page
+$toutesLesCommandes = getCommandes();
+
+// --- TRAITEMENT DU FORMULAIRE DE NOTATION ---
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['commande_id'])) {
+    $idNotee = $_POST['commande_id'];
+    
+    // On cherche la commande concernée et on lui ajoute un flag 'est_note'
+    foreach ($toutesLesCommandes as &$cmd) {
+        if ($cmd['id'] === $idNotee) {
+            $cmd['est_note'] = true;
+            break;
+        }
+    }
+    unset($cmd); // Bonne pratique pour éviter les bugs de référence mémoire
+    
+    $cheminDuFichierJson = 'data/commandes.json'; 
+    
+    // Sauvegarde
+    file_put_contents($cheminDuFichierJson, json_encode($toutesLesCommandes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    
+    $messageSucces = "Merci pour votre avis sur la commande #$idNotee !";
 }
 
 // Récupération sécurisée des données de la session active
@@ -34,7 +57,12 @@ if (is_array($toutesLesCommandes)) {
     <main class="profil-main">
         <div class="profil-container">
             
-            <section class="profil-infos">
+     <section class="profil-infos">
+                <?php if (isset($messageSucces)) : ?>
+                  <div style="background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-bottom: 20px; text-align: center; font-weight: bold;">
+                   <?php echo $messageSucces; ?>
+                  </div>
+                <?php endif; ?>
     <h2>Mes Informations</h2>
     
     <div class="fidelite-carte">
@@ -113,12 +141,16 @@ if (is_array($toutesLesCommandes)) {
                                         ?>
                                     </td>
                                     <td>
-                                        <?php if (($commande['statut'] ?? '') === 'livre') : ?>
-                                            <a href="Notation.php?id=<?php echo urlencode($commande['id']); ?>" class="btn-order btn-small" style="display: inline-block;">Noter</a>
-                                        <?php else : ?>
-                                            <em>Suivi en cours</em>
-                                        <?php endif; ?>
-                                    </td>
+    <?php if (($commande['statut'] ?? '') === 'livre' && empty($commande['est_note'])) : ?>
+        <a href="Notation.php?id=<?php echo urlencode($commande['id']); ?>" class="btn-order btn-small" style="display: inline-block;">Noter</a>
+    
+    <?php elseif (!empty($commande['est_note'])) : ?>
+        <em style="color: var(--jaune-action); font-weight: bold;">✔ Avis envoyé</em>
+    
+    <?php else : ?>
+        <em>Suivi en cours</em>
+    <?php endif; ?>
+</td>
                                 </tr>
                             <?php endforeach; ?>
                         <?php endif; ?>
