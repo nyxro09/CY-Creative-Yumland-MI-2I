@@ -5,7 +5,7 @@
             <h1>Donnez-nous votre avis !</h1>
             <p>Votre commande #402 a été livrée. Comment s'est passée votre expérience ?</p>
             
-            <form action="Profil.html" method="POST">
+            <form action="Profil.php" method="POST">
                 
                 <div>
                     <label>🛵 Qualité de la livraison :</label>
