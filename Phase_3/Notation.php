@@ -1,11 +1,16 @@
 <?php include('header.php'); ?>
+<?php 
+    // On récupère l'ID de la commande envoyé dans l'URL par Profil.php
+    $idCommande = $_GET['id'] ?? 'Inconnue'; 
+?>
 
     <main>
         <section id="notation">
             <h1>Donnez-nous votre avis !</h1>
-            <p>Votre commande #402 a été livrée. Comment s'est passée votre expérience ?</p>
+            <p>Votre commande <strong>#<?php echo htmlspecialchars($idCommande); ?></strong> a été livrée. Comment s'est passée votre expérience ?</p>
             
             <form action="Profil.php" method="POST">
+                <input type="hidden" name="commande_id" value="<?php echo htmlspecialchars($idCommande); ?>">
                 
                 <div>
                     <label>🛵 Qualité de la livraison :</label>
