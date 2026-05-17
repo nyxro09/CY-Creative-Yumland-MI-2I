@@ -41,7 +41,6 @@ $pointsFidelite = $_SESSION['points_fidelite'] ?? 0;
 $nomCompletClient = $prenom . ' ' . $nom;
 
 // Récupération et filtrage de l'historique des commandes de ce client
-$toutesLesCommandes = getCommandes();
 $commandesClient = [];
 
 if (is_array($toutesLesCommandes)) {
