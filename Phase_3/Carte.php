@@ -11,6 +11,7 @@
                     <input type="text" placeholder="Rechercher (ex: Margherita)...">
                 </div>
                 <div class="filters">
+                    <button class="filter-btn" onclick="chargerPlats('Menu')">🍱 Nos Menus</button>
                     <button class="filter-btn" onclick="chargerPlats('Pizza')">Pizzas</button>
                     <button class="filter-btn" onclick="chargerPlats('Salade')">Salades</button>
                     <button class="filter-btn" onclick="chargerPlats('Dessert')">Desserts</button>
@@ -25,7 +26,7 @@
                 <button class="filter-btn" onclick="trierPlats('decroissant')">Prix Décroissant ⬇️</button>
             </div>
         </section>
-        
+
         <section class="menu-category">
             <h2 id="titre-categorie">Toute notre carte</h2>
             
@@ -34,7 +35,17 @@
         </section>
         
     </main>
-
+    <div id="modal-menu" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <button class="close-modal" onclick="fermerModal()">❌</button>
+            <h2 id="modal-titre" style="color: var(--rouge-mosaique); margin-top: 0;">Composer mon menu</h2>
+            <p id="modal-desc">Choisissez vos articles ci-dessous :</p>
+            
+            <div id="modal-choix" style="margin: 20px 0; text-align: left;"></div>
+            
+            <button id="btn-valider-menu" class="gros-bouton vert">🛒 Ajouter ce menu au panier</button>
+        </div>
+    </div>
     <script src="catalogue.js"></script>
 
 <?php include('footer.php'); ?>
