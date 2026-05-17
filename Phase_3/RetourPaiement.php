@@ -26,8 +26,9 @@ $paiement_ok = ($control === $control_valide) && ($statut === 'accepted');
             <?php
             $nouvelleCommande = [
                 'id' => $transaction,
-                'client' => $_SESSION['prenom'] . ' ' . $_SESSION['nom'],
-                'articles' => $_SESSION['panier'],
+                // Sécurise la récupération du nom
+                'client' => ($_SESSION['prenom'] ?? 'Client') . ' ' . ($_SESSION['nom'] ?? 'Inconnu'),
+                'articles' => array_values($_SESSION['panier']),
                 'total' => floatval($montant),
                 'statut' => 'en_attente',
                 'date' => date('d/m/Y H:i')
