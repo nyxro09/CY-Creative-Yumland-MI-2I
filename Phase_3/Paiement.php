@@ -13,7 +13,7 @@ $montant = number_format($total, 2, '.', '');
 
 $transaction = 'MOSAIQUEYUM' . strtoupper(uniqid());
 
-$retour = 'http://localhost/Phase2/RetourPaiement.php';
+$retour = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/RetourPaiement.php';
 
 $control = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur . "#" . $retour . "#");
 ?>
