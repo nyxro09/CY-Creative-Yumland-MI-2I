@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['commande_id'])) {
             break;
         }
     }
-    unset($cmd); // Bonne pratique pour éviter les bugs de référence mémoire
+    unset($cmd); // évite les bugs de référence mémoire
     
     $cheminDuFichierJson = 'data/commandes.json'; 
     
