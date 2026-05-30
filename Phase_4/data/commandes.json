@@ -1,0 +1,50 @@
+[
+    {
+        "id": "C1775381501",
+        "date": "2026-05-16 10:15",
+        "client": "Jean Marchand",
+        "adresse": "12 Rue de la Pizza, 75000 Paris",
+        "articles": [
+            {
+                "id": "P001",
+                "nom": "Margherita",
+                "quantite": 2,
+                "prix": 10.50
+            }
+        ],
+        "total": 21.00,
+        "statut": "en_attente"
+    },
+    {
+        "id": "C1775381502",
+        "date": "2026-05-16 10:42",
+        "client": "Urek Mazino",
+        "adresse": "6 Rue Arthur Rimbaud, 60000 Beauvais",
+        "articles": [
+            {
+                "id": "P003",
+                "nom": "Quatre Fromages",
+                "quantite": 1,
+                "prix": 13.00
+            }
+        ],
+        "total": 13.00,
+        "statut": "en_attente"
+    },
+    {
+        "id": "C1775381503",
+        "date": "2026-05-16 11:00",
+        "client": "Axel Leroy",
+        "adresse": "45 Avenue du Général de Gaulle, 95000 Cergy",
+        "articles": [
+            {
+                "id": "S001",
+                "nom": "Salade César",
+                "quantite": 1,
+                "prix": 9.50
+            }
+        ],
+        "total": 9.50,
+        "statut": "prete"
+    }
+]
