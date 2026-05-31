@@ -23,7 +23,7 @@ $champAModifier = trim($donneesRecues['champ']);
 $nouvelleValeur = trim($donneesRecues['valeur']);
 
 // Sécurité sur les champs autorisés 
-$champsAutorises = ['nom', 'prenom', 'email', 'adresse'];
+$champsAutorises = ['nom', 'prenom', 'email', 'adresse', 'role'];
 if (!in_array($champAModifier, $champsAutorises)) {
     echo json_encode(["success" => false, "message" => "Modification de ce champ non autorisée."]);
     exit();
