@@ -1,17 +1,23 @@
 <?php 
 if(session_status() === PHP_SESSION_NONE){  
-session_start();
+    session_start();
 }
 include_once('fonctions.php'); 
-//On verifie si l'utilisateur est bloqué
+
+// RAFRAÎCHISSEMENT FORCÉ EN TEMPS RÉEL 
 if (isset($_SESSION['user_id'])) {
-    // On va vérifier en temps réel l'état de l'utilisateur dans le fichier JSON
     $tousLesMembres = getUtilisateurs();
+    $compteValide = false;
+
     foreach ($tousLesMembres as $membre) {
         if ($membre['id'] === $_SESSION['user_id']) {
-            // Si l'admin a basculé son statut à true entre-temps
+            $compteValide = true;
+            
+            // MISE À JOUR DU RÔLE 
+            $_SESSION['role'] = $membre['role'];
+
+            // VÉRIFICATION DU BANNISSEMENT
             if (isset($membre['est_bloque']) && $membre['est_bloque'] === true) {
-                // Expulsion immédiate
                 session_unset();
                 session_destroy();
                 header("Location: Login.php?statut=banni");
@@ -20,8 +26,15 @@ if (isset($_SESSION['user_id'])) {
             break;
         }
     }
+    
+    // VÉRIFICATION DE LA SUPPRESSION DU COMPTE
+    if (!$compteValide) {
+        session_unset();
+        session_destroy();
+        header("Location: Login.php?statut=supprime");
+        exit();
+    }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
