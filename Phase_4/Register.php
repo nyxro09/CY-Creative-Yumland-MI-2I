@@ -1,10 +1,30 @@
+<?php 
+require_once('fonctions.php');
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+$nouvelUtilisateur = [
+"id" => "U" . time(),
+"nom" => trim($_POST['nom']),
+"prenom" => trim($_POST['prenom']),
+"email" => trim($_POST['email']),
+"mot_de_passe" => trim($_POST['password']),
+"role" => "client",
+"adresse" => trim($_POST['adresse']),
+"points_fidelite" => 0,
+"est_bloque" => false
+];
+ajouterUtilisateur($nouvelUtilisateur);
+header("Location: Login.php");
+exit();
+}
+?>
+
 <?php include('header.php'); ?>
     <main>
         <section id="register">
             <h1>Rejoignez-nous !</h1>
             <p>Inscrivez-vous pour cumuler des points bonus et profiter d'avantages.</p>
             
-            <form action="Profil.html" method="POST">
+            <form action="Register.html" method="POST">
                 <div>
                     <label>Nom :</label>
                     <input type="text" id="nom" name="nom" required>
