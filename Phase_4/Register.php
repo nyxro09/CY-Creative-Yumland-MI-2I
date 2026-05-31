@@ -24,7 +24,7 @@ exit();
             <h1>Rejoignez-nous !</h1>
             <p>Inscrivez-vous pour cumuler des points bonus et profiter d'avantages.</p>
             
-            <form action="Register.html" method="POST">
+            <form action="Register.php" method="POST">
                 <div>
                     <label>Nom :</label>
                     <input type="text" id="nom" name="nom" required>
@@ -59,7 +59,7 @@ exit();
                 
                 <button type="submit">S'inscrire</button>
                 <button type="reset">Réinitialiser</button> 
-                <p style="text-align: center; margin-top: 15px;">Déjà un compte ? <a href="Login.html">Connectez-vous ici</a></p>
+                <p style="text-align: center; margin-top: 15px;">Déjà un compte ? <a href="Login.php">Connectez-vous ici</a></p>
             </form>
         </section>
     </main>
