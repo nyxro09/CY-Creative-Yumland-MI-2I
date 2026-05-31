@@ -47,6 +47,5 @@
             <button id="btn-valider-menu" class="gros-bouton vert">🛒 Ajouter ce menu au panier</button>
         </div>
     </div>
-    <script src="catalogue.js"></script>
 
 <?php include('footer.php'); ?>
