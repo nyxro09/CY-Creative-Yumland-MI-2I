@@ -29,12 +29,18 @@ if (isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <title>Mosaïque Yum - Accueil</title>
     <link rel="stylesheet" href="style.css">
+    <script src="theme.js" defer></script>
+    <script src="formulaire.js" defer></script>
+    <script src="restaurateur.js" defer></script>
+    <script src="catalogue.js" defer></script>
+    <script src="admin.js" defer></script>
+    <script src="livreur.js" defer></script>
 </head>
 <body class="<?php echo (isset($_COOKIE['theme']) && $_COOKIE['theme'] === 'dark') ? 'dark-theme' : ''; ?>">
 
     <header class="navbar">
         <a href="Accueil.php">
-            <img src="images/logo.png" alt="Logo Mosaïque" class="logo-img">
+            <img src="images/Logo.png" alt="Logo Mosaïque" class="logo-img">
         </a>
         <nav>
     <ul class="nav-links">
