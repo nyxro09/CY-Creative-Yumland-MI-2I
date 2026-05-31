@@ -43,3 +43,39 @@ async function toggleAcces(idCible) {
         btn.disabled = false;
     }
 }
+
+async function changerRole(idUser, selectElement) {
+    const nouveauRole = selectElement.value;
+    selectElement.disabled = true; // On bloque le menu pendant que le serveur travaille
+
+    try {
+        const reponse = await fetch('api_update_role.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: idUser, role: nouveauRole })
+        });
+
+        const texteBrut = await reponse.text();
+        
+        let data;
+        try {
+            data = JSON.parse(texteBrut);
+        } catch (e) {
+            throw new Error("Erreur fatale PHP :\n" + texteBrut);
+        }
+
+        if (data.success) {
+            // Un petit toast ou une alerte pour confirmer
+            alert(`Le rôle a bien été changé en ${nouveauRole.toUpperCase()}.`);
+        } else {
+            alert("Erreur de modification : " + data.message);
+            location.reload(); // Si ça échoue, on recharge la page pour annuler visuellement le changement
+        }
+    } catch (erreur) {
+        console.error("Crash critique API :", erreur);
+        alert("Impossible de joindre le serveur ou erreur interne.");
+        location.reload(); 
+    } finally {
+        selectElement.disabled = false;
+    }
+}
