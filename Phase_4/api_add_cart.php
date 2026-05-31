@@ -1,5 +1,17 @@
 <?php
 session_start();
+
+require_once('fonctions.php');
+if (isset($_SESSION['email'])) {
+    $utilisateurs = getUtilisateurs();
+    foreach($utilisateurs as $user) {
+        if ($user['email'] === $_SESSION['email'] && !empty($user['est_bloque'])) {
+            echo json_encode(["success" => false, "message" => "Votre compte est suspendu."]);
+            exit();
+        }
+    }
+}
+
 header('Content-Type: application/json; charset=utf-8');
 
 // Initialisation du panier si inexistant
