@@ -63,6 +63,4 @@ $tousLesUtilisateurs = getUtilisateurs();
     </div>
 </main>
 
-<script src="admin.js"></script>
-
 <?php include('footer.php'); ?>
