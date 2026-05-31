@@ -113,3 +113,24 @@ function BlocageUtilisateur($id) {
 
     return ["success" => false];
 }
+
+
+function modifierUtilisateurParId($id, $champ, $valeur) {
+    $utilisateurs = getUtilisateurs();
+    $modifie = false;
+
+    foreach ($utilisateurs as &$user) {
+        if (isset($user['id']) && $user['id'] === $id) {
+            $user[$champ] = $valeur;
+            $modifie = true;
+            break;
+        }
+    }
+
+    if ($modifie) {
+        $jsonString = json_encode($utilisateurs, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        file_put_contents('data/utilisateurs.json', $jsonString);
+        return true;
+    }
+    return false;
+}
