@@ -36,7 +36,14 @@ $tousLesUtilisateurs = getUtilisateurs();
                         <td><?php echo htmlspecialchars($user['id']); ?></td>
                         <td><?php echo htmlspecialchars($user['nom'] . ' ' . $user['prenom']); ?></td>
                         <td><?php echo htmlspecialchars($user['email']); ?></td>
-                        <td><strong><?php echo strtoupper(htmlspecialchars($user['role'])); ?></strong></td>
+                        <td>
+                            <select onchange="changerRole('<?php echo $user['id']; ?>', this)" style="padding: 5px; border-radius: 4px; font-weight: bold; cursor: pointer;">
+                              <option value="client" <?php echo $user['role'] === 'client' ? 'selected' : ''; ?>>CLIENT</option>
+                              <option value="restaurateur" <?php echo $user['role'] === 'restaurateur' ? 'selected' : ''; ?>>RESTAURATEUR</option>
+                              <option value="livreur" <?php echo $user['role'] === 'livreur' ? 'selected' : ''; ?>>LIVREUR</option>
+                              <option value="admin" <?php echo $user['role'] === 'admin' ? 'selected' : ''; ?>>ADMIN</option>
+                            </select>
+                        </td>
                         
                         <?php 
                             // Détermination du statut actuel
