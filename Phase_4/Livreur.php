@@ -30,5 +30,3 @@ $toutesLesCommandes = getCommandes();
 </main>
 
 <script src="livreur.js"></script>
-
-<?php include('footer.php'); ?>
